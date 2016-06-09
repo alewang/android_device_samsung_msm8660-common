@@ -87,15 +87,14 @@ static const GpsInterface sLocEngInterface =
 
 // Function declarations for sLocEngAGpsInterface
 static void loc_agps_init(AGpsCallbacks* callbacks);
-static int  loc_agps_open(AGpsType agpsType,
-                          const char* apn, AGpsBearerType bearerType);
-static int  loc_agps_closed(AGpsType agpsType);
-static int  loc_agps_open_failed(AGpsType agpsType);
+static int  loc_agps_open(const char* apn);
+static int  loc_agps_closed();
+static int  loc_agps_open_failed();
 static int  loc_agps_set_server(AGpsType type, const char *hostname, int port);
 
-static const AGpsInterface sLocEngAGpsInterface =
+static const AGpsInterface_v1 sLocEngAGpsInterface =
 {
-   sizeof(AGpsInterface),
+   sizeof(AGpsInterface_v1),
    loc_agps_init,
    loc_agps_open,
    loc_agps_closed,
